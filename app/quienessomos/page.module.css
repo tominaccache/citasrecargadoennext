@@ -1,0 +1,22 @@
+.textoquienessomos {
+    font-size: 18px;
+    padding: 15px;
+    border-radius: 10px;
+    color: white;
+    width: 70%;
+    text-align: center;
+    margin: 0 15%;
+  }
+
+  .titulo{
+    color: white;
+    margin-bottom: 10px;
+    font-size: 30px;
+    margin-top: 25px;
+    font-weight: bold;
+    padding: 3rem 0;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Staatliches', cursive;
+    letter-spacing: 1px;
+  }
