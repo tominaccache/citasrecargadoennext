@@ -16,3 +16,15 @@
     box-shadow: none;
     box-sizing: border-box;
   }
+
+
+    .h2 {
+      color: white;
+      padding: 3rem 0;
+      text-align: center;
+      text-transform: uppercase;
+      font-family: 'Staatliches', cursive;
+      letter-spacing: 1px;
+    }
+    
+  

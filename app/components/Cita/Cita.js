@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Cita.module.css';
 
+
 function Cita({ cita, eliminarCita }) {
   return (
     <div className={styles.divgeneral}> 

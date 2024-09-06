@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import styles from './HacerCita.module.css'; 
+import styles from './HacerCita.module.css';
+ 
 function HacerCita({ agregarCita }) {
   const [nuevaCita, setNuevaCita] = useState({
     mascota: '',
@@ -44,8 +45,8 @@ function HacerCita({ agregarCita }) {
   };
 
   return (
-    <div className="one-half column" style={{ width: '30%', marginLeft: '10%' }}>
-      <h2>Crear mi cita</h2>
+    <div className="one-half column" style={{ width: '40%', marginLeft: '5%' }}>
+      <h2 className={styles.h2}>Crear mi cita</h2>
       <form className={styles.form} onSubmit={enviarFormulario}>
         <label className={styles.label}>Nombre Mascota</label>
         <input
