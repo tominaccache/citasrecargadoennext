@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './page.module.css';
-import ImagenConejo from './../Public/imagenconejo.png';
-import Image from 'next/image';
+{/* import ImagenConejo from './../Public/imagenconejo.png';
+import Image from 'next/image';  */} 
 
 
 
