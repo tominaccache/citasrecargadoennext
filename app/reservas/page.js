@@ -1,23 +1,42 @@
 'use client'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Titulo from '../components/Titulo/Titulo';
 import HacerCita from '../components/HacerCita/HacerCita';
 import ListaCitas from '../components/ListaCitas/ListaCitas';
 
 export default function Reservas() {
-  const [citas, setCitas] = useState([
-    { id: 1, mascota: 'Nina', propietario: 'Martin', fecha: '2021-08-05', hora: '08:20', sintomas: 'Le duele la pierna' },
-    { id: 2, mascota: 'Sifon', propietario: 'Flecha', fecha: '2023-08-05', hora: '09:24', sintomas: 'Duerme mucho' },
-    { id: 3, mascota: 'Floki', propietario: 'Ari', fecha: '2023-08-05', hora: '16:15', sintomas: 'No está comiendo' }
-  ]);
+  // Cargar las citas desde localStorage al inicio
+  const [citas, setCitas] = useState(() => {
+    try {
+      const citasGuardadas = localStorage.getItem('citas');
+      return citasGuardadas ? JSON.parse(citasGuardadas) : [];
+    } catch (error) {
+      console.error('Error al cargar citas de localStorage:', error);
+      return [];
+    }
+  });
 
+  // Guardar las citas en localStorage cada vez que cambien
+  useEffect(() => {
+    try {
+      localStorage.setItem('citas', JSON.stringify(citas));
+    } catch (error) {
+      console.error('Error al guardar citas en localStorage:', error);
+    }
+  }, [citas]);
+
+  // Agregar una nueva cita
   const agregarCita = (nuevaCita) => {
     const confirmacion = window.confirm('¿Está seguro de que desea agregar esta cita?');
     if (confirmacion) {
-      setCitas([...citas, nuevaCita]);
+      setCitas(prevCitas => [
+        ...prevCitas,
+        { ...nuevaCita, id: Date.now() } // Generar un ID único basado en la fecha actual
+      ]);
     }
   };
 
+  // Eliminar una cita
   const eliminarCita = (id) => {
     const confirmacion = window.confirm('¿Está seguro de que desea eliminar esta cita?');
     if (confirmacion) {
