@@ -5,7 +5,7 @@ import HacerCita from '../components/HacerCita/HacerCita';
 import ListaCitas from '../components/ListaCitas/ListaCitas';
 
 export default function Reservas() {
-  // Cargar las citas desde localStorage al inicio
+
   const [citas, setCitas] = useState(() => {
     try {
       const citasGuardadas = localStorage.getItem('citas');
@@ -16,7 +16,6 @@ export default function Reservas() {
     }
   });
 
-  // Guardar las citas en localStorage cada vez que cambien
   useEffect(() => {
     try {
       localStorage.setItem('citas', JSON.stringify(citas));
@@ -25,18 +24,17 @@ export default function Reservas() {
     }
   }, [citas]);
 
-  // Agregar una nueva cita
   const agregarCita = (nuevaCita) => {
     const confirmacion = window.confirm('¿Está seguro de que desea agregar esta cita?');
     if (confirmacion) {
       setCitas(prevCitas => [
         ...prevCitas,
-        { ...nuevaCita, id: Date.now() } // Generar un ID único basado en la fecha actual
+        { ...nuevaCita, id: Date.now() } 
       ]);
     }
   };
 
-  // Eliminar una cita
+
   const eliminarCita = (id) => {
     const confirmacion = window.confirm('¿Está seguro de que desea eliminar esta cita?');
     if (confirmacion) {
